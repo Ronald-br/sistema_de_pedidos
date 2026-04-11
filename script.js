@@ -1,5 +1,5 @@
 let itens = [];
-let total = 0;
+let total =  0;
 
 function adicionar() {
   let produto = document.getElementById("produto").value;
