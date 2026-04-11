@@ -37,20 +37,19 @@ function atualizarLista() {
     let item = itens[i];
 
     let li = document.createElement("li");
-    li.innerHTML = item.produto + " | Qtd: " + item.qtd + " | R$ " + item.subtotal;
+    li.innerHTML = item.produto + " | Qtd: " + item.qtd + " | R$ " + item.subtotal.toFixed(2);
 
     lista.appendChild(li);
 
     total = total + item.subtotal;
   }
 
-  document.getElementById("total").innerText = total;
+  document.getElementById("total").innerText = total.toFixed(2);
 
   salvarTotal();
 }
 
 function salvarTotal() {
-  // duplicação de responsabilidade
   localStorage.setItem("total", total);
 }
 
@@ -67,7 +66,7 @@ function finalizar() {
 
   let totalFinal = total - desconto + taxa;
 
-  alert("Total final: " + totalFinal);
+  alert("Total final: " + totalFinal.toFixed(2));
 
   localStorage.setItem("ultimoPedido", totalFinal);
 
@@ -87,7 +86,6 @@ function removerUltimo() {
   atualizarLista();
 }
 
-// função duplicada de cálculo (problema proposital)
 function calcularTotal() {
   let soma = 0;
 
